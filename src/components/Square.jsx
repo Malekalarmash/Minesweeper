@@ -11,34 +11,33 @@ import { useState } from 'react'
 
 export default function Square(props) {
     const [field, setField] = useState((props) => {
-        const possibleValues = ["bomb", "gold", "rock", "empty"];
+
+        const possibleValues = ["bomb", "bomb", "bomb"
+            , "gold", "gold", "gold", "gold", "gold", "gold",
+            "empty", "empty", "empty",
+            "empty", "empty", "empty",
+            "empty", "empty", "empty",
+            "empty", "empty", "empty",
+            "empty", "empty", "empty",
+            "empty"];
         const randomIndex = Math.floor(Math.random() * possibleValues.length);
+
         return possibleValues[randomIndex];
     });
+    // console.log(field)
 
-    const [fieldValue, setFieldValue] = useState(() => {
+    const [fieldValue, setFieldValue] = useState("")
 
-        if (props.randomIndex === "empty") {
-            setFieldValue('🪨')
-        } else if (props.randomIndex === "gold") {
-            setFieldValue('💰')
-        } else if (props.randomIndex === "bomb") {
-            setFieldValue('💣')
-        }
-    }
-    )
     const [isClicked, setisClicked] = useState(false)
 
-    function handleClick() {
+    function handleClick(props) {
         setisClicked(true)
-        setField(props.randomIndex)
-        console.log(props.randomIndex)
-
-        if (props.randomIndex === "empty") {
+        console.log(typeof field)
+        if (field === "empty") {
             setFieldValue('🪨')
-        } else if (props.randomIndex === "gold") {
+        } else if (field === "gold") {
             setFieldValue('💰')
-        } else if (props.randomIndex === "bomb") {
+        } else if (field === "bomb") {
             setFieldValue('💣')
         }
 
