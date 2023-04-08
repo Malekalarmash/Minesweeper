@@ -1,0 +1,10 @@
+.square {
+    width: 100px;
+    height: 100px;
+
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
